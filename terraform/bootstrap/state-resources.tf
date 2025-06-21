@@ -1,5 +1,7 @@
+resource "random_id" "suffix" { byte_length = 4 }
+
 resource "aws_s3_bucket" "tf_state" {
-  bucket = "infra"
+  bucket = "tf-state-${lower(random_id.suffix.hex)}"
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "state" {
