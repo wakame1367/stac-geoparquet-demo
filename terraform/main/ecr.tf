@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "app" {
-  name = "stac-geoparquet-demo"
+  name = local.project
   lifecycle { prevent_destroy = true }
 }
 
